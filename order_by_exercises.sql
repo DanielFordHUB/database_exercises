@@ -12,7 +12,7 @@ use employees;
 select first_name, last_name
 from employees
 where first_name in ('irene', 'vidya', 'maya')
-order by first_name and last_name;
+order by first_name, last_name;
 -- first row returned Vidya Awdeh
 -- last row returned Irene Trumbly
 
@@ -21,7 +21,7 @@ use employees;
 select first_name, last_name
 from employees
 where first_name in ('irene', 'vidya', 'maya')
-order by last_name and first_name;
+order by last_name, first_name;
 -- returned same as above question (#3)
 
 
@@ -48,7 +48,7 @@ order by hire_date desc;
 select first_name, last_name, birth_date, hire_date
 from employees
 where birth_date like '____-12-25' and hire_date like '199%'
-order by birth_date asc, hire_date asc;
+order by birth_date asc, hire_date desc;
 -- oldest employee hired last is tremaine eugenio 
 
 

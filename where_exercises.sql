@@ -5,15 +5,19 @@ where first_name in ('irene', 'vidya', 'maya');
 -- 731 rows returned
 select first_name
 from employees
-where first_name = 'irene' or 'vidya' or 'maya';
+where first_name = 'irene'
+or first_name = 'vidya' 
+or first_name = 'maya';
 -- used OR instead of IN
 -- error returned
 -- used = and then OR seperating name
 -- returned 263 instances of irene
 select first_name
 from employees
-where first_name = 'irene' or 'vidya' or 'maya'
-and gender in male;
+where (first_name = 'irene'
+or first_name = 'vidya' 
+or first_name = 'maya')
+and gender = m;
 -- error code 105
 -- return for question
 select first_name, last_name
