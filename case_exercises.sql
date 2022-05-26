@@ -33,6 +33,7 @@ SELECT
 		end as alpha_group
 from employees
 order by last_name;
+-- the most inefficient way^^^^^^^^, probably
 
 -- count employees born in each decade
 select
@@ -47,6 +48,14 @@ FROM employees;
 -- current AVG SALARY for: R&D, SALES & MARKETING, PROD & QM, FINANCE & HR, CUSTOMER SERVICE
 
 SELECT
-
-FROM SALARIES
-JOIN
+    CASE
+        WHEN d.dept_name IN ('Research', 'Development') THEN 'R&D'
+        WHEN d.dept_name IN ('Sales', 'Marketing') THEN 'Sales & Marketing'
+        WHEN d.dept_name IN ('Production', 'Quality Management') THEN 'Prod & QM'
+        WHEN d.dept_name IN ('Finance', 'Human Resources') THEN 'Finanace & HR'
+        ELSE d.dept_name
+    END AS dept_group, salary
+FROM departments d
+JOIN dept_emp de USING (dept_no)
+JOIN salaries s USING (emp_no)
+WHERE s.to_date > NOW() AND de.to_date > NOW();

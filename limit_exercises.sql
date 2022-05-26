@@ -1,3 +1,21 @@
+use employees;
+
+SELECT DISTINCT last_name
+FROM employees
+ORDER by last_name DESC
+LIMIT 10;
+
+/* Zykh
+Zyda
+Zwicker
+Zweizig
+Zumaque
+Zultner
+Zucker
+Zuberek
+Zschoche
+Zongker */
+
 select first_name, last_name, birth_date, hire_date
 from employees
 where birth_date like '____-12-25' and hire_date like '199%'
